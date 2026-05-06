@@ -28,9 +28,9 @@ public class ResenaService {
     }
 
     public Resena updateResena(Resena resena) { 
-        if (!resenaRepository.existsById(resena.getId())) {
+        /*if (!resenaRepository.existsById(resena.getId())) {
             return null; 
-        }
+        } */
         return resenaRepository.save(resena);
     }
 

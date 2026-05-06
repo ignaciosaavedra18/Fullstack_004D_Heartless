@@ -2,7 +2,7 @@ package com.duoc.heartless.controller;
 
 import com.duoc.heartless.model.Libro;
 import com.duoc.heartless.service.LibroService;
-import jakarta.validation.Valid;
+//import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,12 +24,12 @@ public class LibroController {
     }
 
     @PostMapping
-    public ResponseEntity<Libro> agregarLibro(@Valid @RequestBody Libro libro) {
+    public ResponseEntity<Libro> agregarLibro(@RequestBody Libro libro) {
         System.out.println("[LibroController] -> agregarLibro");
         return ResponseEntity.status(HttpStatus.CREATED).body(libroService.saveLibro(libro));
     }
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public ResponseEntity<Libro> buscarLibro(@PathVariable Long id) {
         System.out.println("[LibroController] -> buscarLibro id=" + id);
         Libro libro = libroService.getLibroId(id);
@@ -37,10 +37,10 @@ public class LibroController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(libro);
-    }
+    }*/
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Libro> actualizarLibro(@PathVariable Long id, @Valid @RequestBody Libro libro) {
+    /*@PutMapping("/{id}")
+    public ResponseEntity<Libro> actualizarLibro(@PathVariable Long id,  @RequestBody Libro libro) {
         System.out.println("[LibroController] -> actualizarLibro id=" + id);
         libro.setId(id);
         Libro actualizado = libroService.updateLibro(libro);
@@ -48,14 +48,14 @@ public class LibroController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(actualizado);
-    }
+    }*/
 
-    @DeleteMapping("/{id}")
+    /*DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarLibro(@PathVariable Long id) {
         System.out.println("[LibroController] -> eliminarLibro id=" + id);
         libroService.deleteLibro(id);
         return ResponseEntity.noContent().build();
-    }
+    }*/
 
     @GetMapping("/test-error")
     public ResponseEntity<Libro> testError() {
