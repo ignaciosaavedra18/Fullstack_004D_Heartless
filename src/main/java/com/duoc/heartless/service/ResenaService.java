@@ -1,8 +1,6 @@
 package com.duoc.heartless.service;
 
-import com.duoc.heartless.model.Libro;
 import com.duoc.heartless.model.Resena;
-import com.duoc.heartless.repository.LibroRepository;
 import com.duoc.heartless.repository.ResenaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
