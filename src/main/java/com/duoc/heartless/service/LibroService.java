@@ -27,9 +27,9 @@ public class LibroService {
     }
 
     public Libro updateLibro(Libro libro) { 
-        /*if (!libroRepository.existsById(libro.getId())) {
+        if (!libroRepository.existsById(libro.getLibroId())) {
             return null; 
-        }*/
+        }
         return libroRepository.save(libro);
     }
 

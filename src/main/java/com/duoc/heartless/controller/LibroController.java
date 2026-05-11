@@ -29,33 +29,33 @@ public class LibroController {
         return ResponseEntity.status(HttpStatus.CREATED).body(libroService.saveLibro(libro));
     }
 
-    /*@GetMapping("/{id}")
-    public ResponseEntity<Libro> buscarLibro(@PathVariable Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Libro> buscarLibro(@PathVariable Integer id) {
         System.out.println("[LibroController] -> buscarLibro id=" + id);
         Libro libro = libroService.getLibroId(id);
         if (libro == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(libro);
-    }*/
+    }
 
-    /*@PutMapping("/{id}")
-    public ResponseEntity<Libro> actualizarLibro(@PathVariable Long id,  @RequestBody Libro libro) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Libro> actualizarLibro(@PathVariable Integer id,  @RequestBody Libro libro) {
         System.out.println("[LibroController] -> actualizarLibro id=" + id);
-        libro.setId(id);
+        libro.setLibroId(id);
         Libro actualizado = libroService.updateLibro(libro);
         if (actualizado == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(actualizado);
-    }*/
+    }
 
-    /*DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarLibro(@PathVariable Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarLibro(@PathVariable Integer id) {
         System.out.println("[LibroController] -> eliminarLibro id=" + id);
         libroService.deleteLibro(id);
         return ResponseEntity.noContent().build();
-    }*/
+    }
 
     @GetMapping("/test-error")
     public ResponseEntity<Libro> testError() {

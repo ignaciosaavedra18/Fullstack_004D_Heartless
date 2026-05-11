@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Libro {
 
     @Id
-    private int id_libro; 
+    private int LibroId; 
 
     private String nombre;
 
