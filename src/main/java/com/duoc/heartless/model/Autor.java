@@ -26,6 +26,7 @@ public class Autor {
 
     private String nacionalidad;
 
+    private Integer id;
 
 
 }

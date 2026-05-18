@@ -15,51 +15,66 @@ import java.util.List;
 public class AutorController {
 
     @Autowired
-    private AutorService AutorService;
+    private AutorService autorService;
 
-    @GetMapping
-    public ResponseEntity<List<Libro>> listarLibros() {
-        System.out.println("[LibroController] -> listarLibros");
-        return ResponseEntity.ok(libroService.getLibros());
+   @GetMapping
+    public ResponseEntity<List<Autor>> listarAutores() {
+        System.out.println("[AutorController] -> listarAutores");
+        return ResponseEntity.ok(autorService.getAutores());
     }
 
     @PostMapping
-    public ResponseEntity<Libro> agregarLibro(@RequestBody Libro libro) {
-        System.out.println("[LibroController] -> agregarLibro");
-        return ResponseEntity.status(HttpStatus.CREATED).body(libroService.saveLibro(libro));
+    public ResponseEntity<Autor> agregarAutor(@RequestBody Autor autor) {
+        System.out.println("[AutorController] -> agregarAutor");
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(autorService.saveAutor(autor));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Libro> buscarLibro(@PathVariable Integer id) {
-        System.out.println("[LibroController] -> buscarLibro id=" + id);
-        Libro libro = libroService.getLibroId(id);
-        if (libro == null) {
+    public ResponseEntity<Autor> buscarAutor(@PathVariable Integer id) {
+        System.out.println("[AutorController] -> buscarAutor id=" + id);
+
+        Autor autor = autorService.getAutorId(id);
+
+        if (autor == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(libro);
+
+        return ResponseEntity.ok(autor);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Libro> actualizarLibro(@PathVariable Integer id,  @RequestBody Libro libro) {
-        System.out.println("[LibroController] -> actualizarLibro id=" + id);
-        libro.setLibroId(id);
-        Libro actualizado = libroService.updateLibro(libro);
+    public ResponseEntity<Autor> actualizarAutor(
+            @PathVariable Integer id,
+            @RequestBody Autor autor) {
+
+        System.out.println("[AutorController] -> actualizarAutor id=" + id);
+        autor.setAutorId(id);
+
+        Autor actualizado = autorService.updateAutor(autor);
+
         if (actualizado == null) {
             return ResponseEntity.notFound().build();
         }
+
         return ResponseEntity.ok(actualizado);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarLibro(@PathVariable Integer id) {
-        System.out.println("[LibroController] -> eliminarLibro id=" + id);
-        libroService.deleteLibro(id);
+    public ResponseEntity<Void> eliminarAutor(@PathVariable Integer id) {
+
+        System.out.println("[AutorController] -> eliminarAutor id=" + id);
+
+        autorService.deleteAutor(id);
+
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/test-error")
-    public ResponseEntity<Libro> testError() {
-        System.out.println("[LibroController] -> testError");
+    public ResponseEntity<Autor> testError() {
+
+        System.out.println("[AutorController] -> testError");
+
         throw new RuntimeException("Este es un error de prueba lanzado intencionalmente");
     }
 }

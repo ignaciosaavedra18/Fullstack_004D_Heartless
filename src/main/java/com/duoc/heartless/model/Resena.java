@@ -26,8 +26,7 @@ public class Resena {
 
     private String fecha_publicacion;
     
-    
-    
+    private Integer ResenaId;
 
     
 }

@@ -15,51 +15,70 @@ import java.util.List;
 public class ResenaController {
 
     @Autowired
-    private ResenaService ResenaService;
+    private ResenaService resenaService;
 
     @GetMapping
-    public ResponseEntity<List<Libro>> listarLibros() {
-        System.out.println("[LibroController] -> listarLibros");
-        return ResponseEntity.ok(libroService.getLibros());
+    public ResponseEntity<List<Resena>> listarResenas() {
+        System.out.println("[ResenaController] -> listarResenas");
+        return ResponseEntity.ok(resenaService.getResenas());
     }
-
+    
     @PostMapping
-    public ResponseEntity<Libro> agregarLibro(@RequestBody Libro libro) {
-        System.out.println("[LibroController] -> agregarLibro");
-        return ResponseEntity.status(HttpStatus.CREATED).body(libroService.saveLibro(libro));
+    public ResponseEntity<Resena> agregarResena(@RequestBody Resena resena) {
+        System.out.println("[ResenaController] -> agregarResena");      
+    
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(resenaService.saveResena(resena));    
+        
+
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Libro> buscarLibro(@PathVariable Integer id) {
-        System.out.println("[LibroController] -> buscarLibro id=" + id);
-        Libro libro = libroService.getLibroId(id);
-        if (libro == null) {
+    public ResponseEntity<Resena> buscarResena(@PathVariable Integer id) {
+        System.out.println("[ResenaController] -> buscarResena id=" + id);
+
+        Resena resena = resenaService.getResenaId(id);
+
+        if (resena == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(libro);
+
+        return ResponseEntity.ok(resena);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Libro> actualizarLibro(@PathVariable Integer id,  @RequestBody Libro libro) {
-        System.out.println("[LibroController] -> actualizarLibro id=" + id);
-        libro.setLibroId(id);
-        Libro actualizado = libroService.updateLibro(libro);
+    public ResponseEntity<Resena> actualizarResena( @PathVariable Integer id, @RequestBody Resena resena) {
+        System.out.println("[ResenaController] -> actualizarResena id=" + id);
+        resena.setId_resena(id);
+
+        Resena actualizado = resenaService.updateResena(resena);
+
         if (actualizado == null) {
             return ResponseEntity.notFound().build();
         }
+
         return ResponseEntity.ok(actualizado);
     }
 
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarLibro(@PathVariable Integer id) {
-        System.out.println("[LibroController] -> eliminarLibro id=" + id);
-        libroService.deleteLibro(id);
+    public ResponseEntity<Void> eliminarResena(@PathVariable Integer id) {
+        System.out.println("[ResenaController] -> eliminarResena id=" + id);
+
+        boolean eliminado = resenaService.deleteResena(id);
+
+        if (!eliminado) {
+            return ResponseEntity.notFound().build();
+        }
+
         return ResponseEntity.noContent().build();
     }
 
+
     @GetMapping("/test-error")
-    public ResponseEntity<Libro> testError() {
-        System.out.println("[LibroController] -> testError");
-        throw new RuntimeException("Este es un error de prueba lanzado intencionalmente");
+    public ResponseEntity<Resena> testError() {
+        System.out.println("[ResenaController] -> testError");
+        throw new RuntimeException("Error de prueba en ResenaController");
     }
+
 }

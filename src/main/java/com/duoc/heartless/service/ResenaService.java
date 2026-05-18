@@ -25,15 +25,19 @@ public class ResenaService {
         return resenaRepository.findById(id).orElse(null);
     }
 
-    public Resena updateResena(Resena resena) { 
-        /*if (!resenaRepository.existsById(resena.getId())) {
-            return null; 
-        } */
-        return resenaRepository.save(resena);
+    public Resena updateResena(Resena resena) {
+    if (!resenaRepository.existsById(resena.getId_resena())) {
+        return null;
     }
+    return resenaRepository.save(resena);
+}
 
-    public void deleteResena(Integer id) {
-        resenaRepository.deleteById(id);
+    public boolean deleteResena(Integer id) {
+        if (resenaRepository.existsById(id)) {
+            resenaRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
 }

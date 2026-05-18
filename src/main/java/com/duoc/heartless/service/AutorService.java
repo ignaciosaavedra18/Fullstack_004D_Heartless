@@ -26,14 +26,18 @@ public class AutorService {
     }
 
     public Autor updateAutor(Autor autor) { 
-        /*if (!autorRepository.existsById(autor.getId())) {
+        if (!autorRepository.existsById(autor.getId())) {
             return null; 
-        }*/
+        }
         return autorRepository.save(autor);
     }
 
-    public void deleteAutor(Integer id) {
-        autorRepository.deleteById(id);
+    public boolean deleteAutor(Integer id) {
+        if (autorRepository.existsById(id)) {
+            autorRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
 }
