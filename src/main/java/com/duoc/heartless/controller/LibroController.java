@@ -40,7 +40,7 @@ public class LibroController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Libro> actualizarLibro(@PathVariable Integer id,  @RequestBody Libro libro) {
+    public ResponseEntity<Libro> actualizarLibro(@PathVariable Integer id, @Valid @RequestBody Libro libro) {
         System.out.println("[LibroController] -> actualizarLibro id=" + id);
         libro.setLibroId(id);
         Libro actualizado = libroService.updateLibro(libro);

@@ -24,7 +24,7 @@ public class LibroService {
     }
 
     public Libro saveLibro(Libro libro) {
-        logger.info("Guardando libro: {}" + libro.getNombre());
+        logger.info("Guardando libro: {}", libro.getNombre());
         return libroRepository.save(libro);
     }
 
