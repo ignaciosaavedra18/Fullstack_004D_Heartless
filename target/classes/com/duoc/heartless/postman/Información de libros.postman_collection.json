@@ -7,7 +7,7 @@
   },
   "item": [
     {
-      "name": "obtener libros",
+      "name": "listar libros",
       "request": {
         "method": "GET",
         "header": [],
@@ -22,6 +22,119 @@
             "api",
             "v1",
             "libros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "agregar libros",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\r\n  \"nombre\": \"Harry Potter y la Piedra Filosofal\",\r\n  \"genero\": \"Fantasía\",\r\n  \"autor\": \"J.K. Rowling\",\r\n  \"fecha_de_incio\": 2026,\r\n  \"fecha_de_termino\": 2026,\r\n  \"pagina\": 233,\r\n  \"sinopsis\": \"Harry descubre que es un mago y comienza su primer año en Hogwarts.\"\r\n  \"libroId\": 4\r\n\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/libros",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "libros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar libros",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n        \"nombre\": \"1984 Actualizado\",\r\n        \"genero\": \"Ciencia Ficción\",\r\n        \"autor\": \"George Orwell\",\r\n        \"fecha_de_incio\": 2026,\r\n        \"fecha_de_termino\": 2026,\r\n        \"pagina\": 350,\r\n        \"sinopsis\": \"Versión actualizada del clásico distópico..\",\r\n        \"libroId\": 2\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/libros/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "libros",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/libros/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "libros",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Autores",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/autores",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "autores"
           ]
         }
       },

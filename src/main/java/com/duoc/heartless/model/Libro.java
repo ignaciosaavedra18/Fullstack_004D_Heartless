@@ -16,6 +16,8 @@ import jakarta.validation.constraints.Min;
 public class Libro {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_libro")
     private int LibroId; 
 
     @NotBlank(message = "El nombre del libro no puede estar vacío")
