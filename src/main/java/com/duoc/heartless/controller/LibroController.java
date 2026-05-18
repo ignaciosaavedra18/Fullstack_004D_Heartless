@@ -2,7 +2,7 @@ package com.duoc.heartless.controller;
 
 import com.duoc.heartless.model.Libro;
 import com.duoc.heartless.service.LibroService;
-//import jakarta.validation.Valid;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +24,7 @@ public class LibroController {
     }
 
     @PostMapping
-    public ResponseEntity<Libro> agregarLibro(@RequestBody Libro libro) {
+    public ResponseEntity<Libro> agregarLibro(@Valid @RequestBody Libro libro) {
         System.out.println("[LibroController] -> agregarLibro");
         return ResponseEntity.status(HttpStatus.CREATED).body(libroService.saveLibro(libro));
     }

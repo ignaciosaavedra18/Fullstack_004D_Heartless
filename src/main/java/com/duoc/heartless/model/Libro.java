@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Min;
 
 @Data
 @AllArgsConstructor
@@ -16,6 +18,7 @@ public class Libro {
     @Id
     private int LibroId; 
 
+    @NotBlank(message = "El nombre del libro no puede estar vacío")
     private String nombre;
 
     private String genero; 
@@ -26,11 +29,12 @@ public class Libro {
 
     private int fecha_de_termino;
 
+    @Min(value = 1, message = "La pagina debe ser mayor a 0")
     private int pagina;
 
     private String sinopsis;
 
-
+    
 
 
 
