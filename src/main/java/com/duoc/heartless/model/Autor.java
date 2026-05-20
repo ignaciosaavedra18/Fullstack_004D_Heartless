@@ -3,11 +3,12 @@ package com.duoc.heartless.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,7 +29,8 @@ public class Autor {
 
     private Integer id;
 
-
+    @OneToMany(mappedBy = "autor")
+    private List<Libro> libros;
 }
 
 // MODELS: Son las entidades que representan tablas de la base de datos. En este caso, la clase Autor representa la tabla "autores". Cada instancia de Autor corresponde a una fila en la tabla.

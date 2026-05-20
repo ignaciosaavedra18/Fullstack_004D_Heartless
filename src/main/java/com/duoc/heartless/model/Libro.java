@@ -25,7 +25,9 @@ public class Libro {
 
     private String genero; 
 
-    private String autor;
+    @ManyToOne
+    @JoinColumn(name = "id_autor")
+    private Autor autor;
 
     private int fecha_de_incio;
 
