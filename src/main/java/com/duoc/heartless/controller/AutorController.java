@@ -2,7 +2,7 @@ package com.duoc.heartless.controller;
 
 import com.duoc.heartless.model.Autor;
 import com.duoc.heartless.service.AutorService;
-import jakarta.validation.Valid;
+//import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
