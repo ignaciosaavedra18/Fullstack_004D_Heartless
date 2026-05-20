@@ -35,12 +35,12 @@ public class Autor {
 
     private String nacionalidad;
 
-    private Integer id;
-
     @OneToMany(mappedBy = "autor")
     private List<Libro> libros;
 
+    private Integer id;
 }
+
 
 
 // MODELS: Son las entidades que representan tablas de la base de datos. En este caso, la clase Autor representa la tabla "autores". Cada instancia de Autor corresponde a una fila en la tabla.
