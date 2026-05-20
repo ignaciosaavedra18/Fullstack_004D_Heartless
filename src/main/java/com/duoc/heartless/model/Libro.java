@@ -41,9 +41,6 @@ public class Libro {
 
     private String sinopsis;
 
-
-
-
 }
 
 
