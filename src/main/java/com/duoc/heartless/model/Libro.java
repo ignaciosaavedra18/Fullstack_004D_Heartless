@@ -1,5 +1,7 @@
 package com.duoc.heartless.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +29,7 @@ public class Libro {
 
     @ManyToOne
     @JoinColumn(name = "id_autor")
+    @JsonBackReference // Evita el bucle infinito omitiendo los datos repetidos del autor al listar el libro individualmente
     private Autor autor;
 
     private int fecha_de_incio;
@@ -39,7 +42,7 @@ public class Libro {
     private String sinopsis;
 
 
-    
+
 
 }
 
