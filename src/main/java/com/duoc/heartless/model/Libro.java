@@ -1,6 +1,5 @@
 package com.duoc.heartless.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,18 +18,12 @@ public class Libro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_libro")
     private int LibroId; 
 
     @NotBlank(message = "El nombre del libro no puede estar vacío")
     private String nombre;
 
     private String genero; 
-
-    @ManyToOne
-    @JoinColumn(name = "id_autor")
-    @JsonBackReference // Evita el bucle infinito omitiendo los datos repetidos del autor al listar el libro individualmente
-    private Autor autor;
 
     private int fecha_de_incio;
 
@@ -41,7 +34,12 @@ public class Libro {
 
     private String sinopsis;
 
+    @ManyToOne
+    @JoinColumn(name = "id_autor")
+    private Autor autor;
 }
+
+
 
 
 // Entidad que representa un libro dentro del sistema. Contiene información del libro: título género autor reseñas

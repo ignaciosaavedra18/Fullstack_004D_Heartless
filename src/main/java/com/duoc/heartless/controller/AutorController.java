@@ -49,7 +49,7 @@ public class AutorController {
             @RequestBody Autor autor) {
 
         System.out.println("[AutorController] -> actualizarAutor id=" + id);
-        autor.setId(id); // Asegura que el ID del autor a actualizar se establezca correctamente
+        autor.setId_autor(id); // Asegura que el ID del autor a actualizar se establezca correctamente
 
         Autor actualizado = autorService.updateAutor(autor);
 
