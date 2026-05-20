@@ -36,9 +36,8 @@ public class Libro {
 
     private String sinopsis;
 
-    
-
-
 
 }
-   
+
+
+// Entidad que representa un libro dentro del sistema. Contiene información del libro: título género autor reseñas

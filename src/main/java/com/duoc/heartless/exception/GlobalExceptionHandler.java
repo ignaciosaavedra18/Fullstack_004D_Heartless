@@ -13,3 +13,6 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 }
+
+// Maneja errores globales de la aplicación. Sirve para capturar excepciones y devolver mensajes más claros al usuario. 
+// Ejemplo: recurso no encontrado error de validación error interno

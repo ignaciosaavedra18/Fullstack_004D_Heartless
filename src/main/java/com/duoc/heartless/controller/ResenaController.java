@@ -82,3 +82,5 @@ public class ResenaController {
     }
 
 }
+
+// Controlador encargado de manejar las reseñas de libros. Gestiona las reseñas asociadas a libros. Permite crear reseñas, listar reseñas, actualizar reseñas y eliminar reseñas. Cada reseña está vinculada a un libro específico.

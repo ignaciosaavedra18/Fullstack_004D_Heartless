@@ -2,7 +2,7 @@ package com.duoc.heartless.controller;
 
 import com.duoc.heartless.model.Autor;
 import com.duoc.heartless.service.AutorService;
-//import jakarta.validation.Valid;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -78,3 +78,6 @@ public class AutorController {
         throw new RuntimeException("Este es un error de prueba lanzado intencionalmente");
     }
 }
+
+// Los controllers reciben las peticiones HTTP desde Postman o el navegador. 
+// Controlador encargado de manejar las peticiones relacionadas con autores. Maneja endpoints como: GET |POST PUT DELETE para los autores.

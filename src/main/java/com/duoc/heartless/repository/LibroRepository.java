@@ -9,3 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface LibroRepository extends JpaRepository<Libro, Integer> {
     
 }
+
+// Repositorio encargado de las operaciones de base de datos de libros. Permite guardar, buscar, actualizar y eliminar libros.

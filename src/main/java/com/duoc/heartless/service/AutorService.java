@@ -41,3 +41,6 @@ public class AutorService {
     }
 
 }
+
+// SERVICE: Los services contienen la lógica de negocio.
+// Servicio que contiene la lógica de negocio de autores. Procesa las operaciones antes de llegar a la base de datos. 

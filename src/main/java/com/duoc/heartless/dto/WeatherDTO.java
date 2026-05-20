@@ -18,3 +18,5 @@ public class WeatherDTO {
         private Double windspeed;
     }
 }
+
+// DTO utilizado para transportar la información del clima. Un DTO sirve para mover datos entre capas sin exponer directamente la entidad.

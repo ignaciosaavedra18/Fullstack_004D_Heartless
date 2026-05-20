@@ -63,3 +63,5 @@ public class LibroController {
         throw new RuntimeException("Este es un error de prueba lanzado intencionalmente");
     }
 }
+
+// Controlador que administra las operaciones CRUD de libros. Permite: listar libros crear libros actualizar libros eliminar libros

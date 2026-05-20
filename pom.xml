@@ -72,3 +72,7 @@
 
 
 </project>
+
+
+<!-- Archivo que administra las dependencias del proyecto Maven -->
+<!-- Aquí se incluyen las dependencias necesarias para el proyecto, como Spring Boot, JPA, H2, Lombok, MySQL Connector, WebFlux y Validación. -->

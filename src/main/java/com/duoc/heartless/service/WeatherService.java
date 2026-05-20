@@ -34,3 +34,5 @@ public class WeatherService {
                 .block();
     }
 }
+
+// Servicio que consume la API externa del clima. Se conecta a la API usando WebClient y obtiene información climática.

@@ -25,3 +25,6 @@ public class WeatherController {
         return ResponseEntity.ok(resultado);
     }
 }
+
+
+// Controlador que entrega información del clima usando una API externa. Recibe solicitudes para mostrar datos climáticos.

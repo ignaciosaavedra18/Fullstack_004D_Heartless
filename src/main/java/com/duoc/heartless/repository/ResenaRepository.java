@@ -10,3 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface ResenaRepository extends JpaRepository<Resena, Integer> {
     
 }
+
+// Repositorio encargado del acceso a datos de reseñas. Gestiona las consultas relacionadas con reseñas.

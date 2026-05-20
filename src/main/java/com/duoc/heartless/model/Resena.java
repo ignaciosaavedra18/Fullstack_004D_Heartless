@@ -30,3 +30,5 @@ public class Resena {
 
     
 }
+
+// Entidad que representa una reseña realizada a un libro. Guarda comentarios o valoraciones de libros.

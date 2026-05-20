@@ -30,3 +30,6 @@ public class Autor {
 
 
 }
+
+// MODELS: Son las entidades que representan tablas de la base de datos. En este caso, la clase Autor representa la tabla "autores". Cada instancia de Autor corresponde a una fila en la tabla.
+// Entidad que representa un autor en la base de datos. Contiene atributos del autor como: id nombre nacionalidad

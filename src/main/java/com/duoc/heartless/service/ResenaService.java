@@ -41,3 +41,4 @@ public class ResenaService {
     }
 
 }
+// Servicio que administra la lógica relacionada con reseñas. Maneja las operaciones de reseñas.

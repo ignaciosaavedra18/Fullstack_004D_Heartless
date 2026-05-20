@@ -19,3 +19,5 @@ public class WebClientConfig {
                 .build();
     }
 }
+
+//Configura WebClient para poder consumir APIs externas,  Sirve para crear el cliente que usa la aplicación para conectarse a servicios externos, como la API del clima.

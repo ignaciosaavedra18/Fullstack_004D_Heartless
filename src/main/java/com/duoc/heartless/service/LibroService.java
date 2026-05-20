@@ -43,3 +43,5 @@ public class LibroService {
         libroRepository.deleteById(id);
     }
 }
+
+// Servicio encargado de la lógica de negocio de libros. Aquí se validan y gestionan los libros.
