@@ -1,6 +1,8 @@
 package com.duoc.heartless.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -16,7 +18,8 @@ import lombok.NoArgsConstructor;
 public class Resena {
 
     @Id
-    private int id_resena;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id_resena;
 
     private String formato;
 
@@ -25,8 +28,6 @@ public class Resena {
     private String opinion_libro;
 
     private String fecha_publicacion;
-    
-    private Integer ResenaId;
 
     
 }
