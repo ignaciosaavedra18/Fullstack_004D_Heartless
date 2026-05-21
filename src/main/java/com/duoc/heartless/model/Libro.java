@@ -17,8 +17,6 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name="libros")
-@Getter
-@Setter
 public class Libro {
 
     @Id
@@ -31,7 +29,7 @@ public class Libro {
     @NotBlank
     private String genero; 
 
-    private int fecha_de_incio;
+    private int fecha_de_inicio;
 
     private int fecha_de_termino;
 
@@ -47,7 +45,7 @@ public class Libro {
     private Autor autor;
 
     @OneToMany(mappedBy = "libro", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonBackReference
+    @JsonManagedReference
     private List<Resena> resenas = new ArrayList<>();
 }
 

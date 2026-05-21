@@ -46,10 +46,17 @@ public class LibroService {
     public Libro updateLibro(Integer id, Libro libroactualizado) { 
         Libro libro = libroRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Libro no encontrado"));
-        if (!libroRepository.existsById(libro.getLibroId())) {
-            return null; 
-        }
-        return libroRepository.save(libro);
+
+        libro.setNombre(libroactualizado.getNombre());
+        libro.setGenero(libroactualizado.getGenero());
+         libro.setFecha_de_inicio(libroactualizado.getFecha_de_inicio());
+        libro.setFecha_de_termino(libroactualizado.getFecha_de_termino());
+        libro.setPagina(libroactualizado.getPagina());
+        libro.setSinopsis(libroactualizado.getSinopsis());
+        
+        logger.info("Actualizando libro con id {}", id);
+
+    return libroRepository.save(libro);
     }
 
     public void deleteLibro(Integer id) {

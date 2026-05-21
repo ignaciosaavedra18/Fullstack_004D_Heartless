@@ -12,7 +12,6 @@ import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.*;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 
@@ -22,8 +21,6 @@ import jakarta.validation.constraints.Max;
 @NoArgsConstructor
 @Entity
 @Table(name = "resenas")
-@Getter
-@Setter
 public class Resena {
 
     @Id

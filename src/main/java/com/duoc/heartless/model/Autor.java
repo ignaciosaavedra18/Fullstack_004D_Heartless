@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="autores")
-@Getter
-@Setter
 public class Autor {
 
     @Id

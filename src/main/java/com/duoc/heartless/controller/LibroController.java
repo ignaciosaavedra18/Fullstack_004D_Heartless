@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -24,10 +25,12 @@ public class LibroController {
     }
 
     @PostMapping("/{autorid}")
-    public ResponseEntity<Libro> agregarLibro(@PathVariable Integer autorId, @Valid @RequestBody Libro libro) {
+    public ResponseEntity<Libro> agregarLibro(
+            @PathVariable Integer autorId, @Valid @RequestBody Libro libro) {
         
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(libroService.saveLibro(libro, autorId));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(libroService.saveLibro(libro, autorId));
     }
 
     @GetMapping("/{id}")
