@@ -1,20 +1,29 @@
 package com.duoc.heartless.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.*;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "resenas")
-
+@Getter
+@Setter
 public class Resena {
 
     @Id
@@ -23,11 +32,19 @@ public class Resena {
 
     private String formato;
 
+    @Min(value = 1)
+    @Max(value = 5)
     private int clasificacion;
 
     private String opinion_libro;
 
     private String fecha_publicacion;
+
+    @ManyToOne
+    @JoinColumn(name = "libro_id")
+    @JsonBackReference
+    private Libro libro;
+    
 
     
 }

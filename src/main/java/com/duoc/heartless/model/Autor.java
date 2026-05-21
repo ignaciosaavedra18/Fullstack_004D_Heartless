@@ -5,12 +5,15 @@ import jakarta.persistence.Entity;
 //import jakarta.persistence.GeneratedValue;
 //import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-//import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Data
@@ -18,10 +21,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name="autores")
+@Getter
+@Setter
 public class Autor {
 
     @Id
-    private int id_autor;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id_autor;
 
     private String nombre;
 
@@ -31,11 +37,10 @@ public class Autor {
 
     private String nacionalidad;
 
-    private Integer id;
-
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Libro> libros = new ArrayList<>();
 
 }
-
 
 
 // MODELS: Son las entidades que representan tablas de la base de datos. En este caso, la clase Autor representa la tabla "autores". Cada instancia de Autor corresponde a una fila en la tabla.

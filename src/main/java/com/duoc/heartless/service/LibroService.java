@@ -1,6 +1,7 @@
 package com.duoc.heartless.service;
 
 import com.duoc.heartless.model.Libro;
+import com.duoc.heartless.repository.AutorRepository;
 import com.duoc.heartless.repository.LibroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,10 @@ public class LibroService {
 
     @Autowired
     private LibroRepository libroRepository;
+
+    @Autowired
+    private AutorRepository autorRepository;
+
     
     private static final Logger logger =
             LoggerFactory.getLogger(LibroService.class);
@@ -29,7 +34,10 @@ public class LibroService {
     }
 
     public Libro getLibroId(Integer id) {
-        return libroRepository.findById(id).orElse(null);
+        return libroRepository.findById(id)
+                .orElseThrow(() ->
+                new RuntimeException("Libro no encontrado"));
+    
     }
 
     public Libro updateLibro(Libro libro) { 
@@ -40,8 +48,12 @@ public class LibroService {
     }
 
     public void deleteLibro(Integer id) {
+        if (!libroRepository.existsById(id)) {
+            throw new RuntimeException("Libro no encontrado");
+        }
         libroRepository.deleteById(id);
     }
 }
+
 
 // Servicio encargado de la lógica de negocio de libros. Aquí se validan y gestionan los libros.

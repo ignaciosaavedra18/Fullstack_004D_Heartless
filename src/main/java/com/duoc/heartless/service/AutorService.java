@@ -26,7 +26,7 @@ public class AutorService {
     }
 
     public Autor updateAutor(Autor autor) { 
-        if (!autorRepository.existsById(autor.getId())) {
+        if (!autorRepository.existsById(autor.getId_autor())) {
             return null; 
         }
         return autorRepository.save(autor);
