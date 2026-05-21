@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,6 +32,7 @@ public class Libro {
     @NotBlank(message = "El nombre del libro no puede estar vacío")
     private String nombre;
 
+    @NotBlank
     private String genero; 
 
     private int fecha_de_incio;
@@ -40,6 +42,7 @@ public class Libro {
     @Min(value = 1, message = "La pagina debe ser mayor a 0")
     private int pagina;
 
+    @NotBlank
     private String sinopsis;
 
     @ManyToOne

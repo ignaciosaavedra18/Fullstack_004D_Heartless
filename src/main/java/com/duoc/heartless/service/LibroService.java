@@ -1,5 +1,6 @@
 package com.duoc.heartless.service;
 
+import com.duoc.heartless.model.Autor;
 import com.duoc.heartless.model.Libro;
 import com.duoc.heartless.repository.AutorRepository;
 import com.duoc.heartless.repository.LibroRepository;
@@ -28,7 +29,10 @@ public class LibroService {
         return libroRepository.findAll();
     }
 
-    public Libro saveLibro(Libro libro) {
+    public Libro saveLibro(Libro libro, Integer autorId) {
+        Autor autor = autorRepository.findById(autorId)
+                .orElseThrow(() -> new RuntimeException("Autor no encontrado"));
+        libro.setAutor(autor);
         logger.info("Guardando libro: {}", libro.getNombre());
         return libroRepository.save(libro);
     }
@@ -39,8 +43,9 @@ public class LibroService {
                 new RuntimeException("Libro no encontrado"));
     
     }
-
-    public Libro updateLibro(Libro libro) { 
+    public Libro updateLibro(Integer id, Libro libroactualizado) { 
+        Libro libro = libroRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Libro no encontrado"));
         if (!libroRepository.existsById(libro.getLibroId())) {
             return null; 
         }

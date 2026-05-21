@@ -15,6 +15,8 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Data
 @AllArgsConstructor
@@ -37,7 +39,10 @@ public class Autor {
 
     private String nacionalidad;
 
+
+
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<Libro> libros = new ArrayList<>();
 
 }

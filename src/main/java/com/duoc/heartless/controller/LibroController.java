@@ -23,10 +23,11 @@ public class LibroController {
         return ResponseEntity.ok(libroService.getLibros());
     }
 
-    @PostMapping
-    public ResponseEntity<Libro> agregarLibro(@Valid @RequestBody Libro libro) {
-        System.out.println("[LibroController] -> agregarLibro");
-        return ResponseEntity.status(HttpStatus.CREATED).body(libroService.saveLibro(libro));
+    @PostMapping("/{autorid}")
+    public ResponseEntity<Libro> agregarLibro(@PathVariable Integer autorId, @Valid @RequestBody Libro libro) {
+        
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(libroService.saveLibro(libro, autorId));
     }
 
     @GetMapping("/{id}")
@@ -42,8 +43,7 @@ public class LibroController {
     @PutMapping("/{id}")
     public ResponseEntity<Libro> actualizarLibro(@PathVariable Integer id, @Valid @RequestBody Libro libro) {
         System.out.println("[LibroController] -> actualizarLibro id=" + id);
-        libro.setLibroId(id);
-        Libro actualizado = libroService.updateLibro(libro);
+        Libro actualizado = libroService.updateLibro(id, libro);
         if (actualizado == null) {
             return ResponseEntity.notFound().build();
         }
