@@ -29,9 +29,11 @@ public class Libro {
     @NotBlank
     private String genero; 
 
-    private int fecha_de_inicio;
+    @Column(name = "fecha_de_inicio")
+    private int fechaDeinicio;
 
-    private int fecha_de_termino;
+    @Column(name = "fecha_de_termino")
+    private int fechaDetermino;
 
     @Min(value = 1, message = "La pagina debe ser mayor a 0")
     private int pagina;

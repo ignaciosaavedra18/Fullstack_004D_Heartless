@@ -23,12 +23,14 @@ public class ResenaController {
         return ResponseEntity.ok(resenaService.getResenas());
     }
     
-    @PostMapping
-    public ResponseEntity<Resena> agregarResena(@RequestBody Resena resena) {
+    @PostMapping("/{libroId}")
+    public ResponseEntity<Resena> agregarResena(
+            @PathVariable Integer libroId, 
+            @RequestBody Resena resena) {
         System.out.println("[ResenaController] -> agregarResena");      
     
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(resenaService.saveResena(resena));    
+                .body(resenaService.saveResena(resena, libroId));    
         
 
     }

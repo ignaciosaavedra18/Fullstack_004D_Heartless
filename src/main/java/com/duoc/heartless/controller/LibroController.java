@@ -24,7 +24,7 @@ public class LibroController {
         return ResponseEntity.ok(libroService.getLibros());
     }
 
-    @PostMapping("/{autorid}")
+    @PostMapping("/{autorId}")
     public ResponseEntity<Libro> agregarLibro(
             @PathVariable Integer autorId, @Valid @RequestBody Libro libro) {
         

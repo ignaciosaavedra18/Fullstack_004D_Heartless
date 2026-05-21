@@ -4,6 +4,9 @@ import com.duoc.heartless.model.Resena;
 import com.duoc.heartless.repository.ResenaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.duoc.heartless.model.Libro;
+import com.duoc.heartless.repository.LibroRepository;
+
 
 import java.util.List;
 
@@ -12,12 +15,19 @@ public class ResenaService {
 
     @Autowired
     private ResenaRepository resenaRepository;
+
+    @Autowired
+    private LibroRepository libroRepository;
     
     public List<Resena> getResenas() {
         return resenaRepository.findAll();
     }
 
-    public Resena saveResena(Resena resena) {
+    public Resena saveResena(Resena resena, Integer libroId) {
+        Libro libro = libroRepository.findById(libroId)
+        .orElseThrow(() -> new RuntimeException("Libro no encontrado"));
+        resena.setLibro(libro);
+
         return resenaRepository.save(resena);
     }
 
@@ -26,9 +36,13 @@ public class ResenaService {
     }
 
     public Resena updateResena(Resena resena) {
-    if (!resenaRepository.existsById(resena.getId_resena())) {
-        return null;
-    }
+
+    Resena existente = resenaRepository.findById(resena.getId_resena())
+            .orElseThrow(() -> new RuntimeException("Reseña no encontrada"));
+
+   
+    resena.setLibro(existente.getLibro());
+
     return resenaRepository.save(resena);
 }
 

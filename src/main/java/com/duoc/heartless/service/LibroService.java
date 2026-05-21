@@ -49,8 +49,8 @@ public class LibroService {
 
         libro.setNombre(libroactualizado.getNombre());
         libro.setGenero(libroactualizado.getGenero());
-        libro.setFecha_de_inicio(libroactualizado.getFecha_de_inicio());
-        libro.setFecha_de_termino(libroactualizado.getFecha_de_termino());
+        libro.setFechaDeinicio(libroactualizado.getFechaDeinicio());
+        libro.setFechaDetermino(libroactualizado.getFechaDetermino());
         libro.setPagina(libroactualizado.getPagina());
         libro.setSinopsis(libroactualizado.getSinopsis());
         
