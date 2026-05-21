@@ -1,27 +1,19 @@
 package com.duoc.heartless.model;
 
 
-import jakarta.persistence.Entity;
 //import jakarta.persistence.GeneratedValue;
 //import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.*;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.*;
-
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
+//import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Table(name="autores")
 @Getter
 @Setter
@@ -39,11 +31,9 @@ public class Autor {
 
     private String nacionalidad;
 
-
-
-    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonBackReference
-    private List<Libro> libros = new ArrayList<>();
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Libro> libros;
 
 }
 

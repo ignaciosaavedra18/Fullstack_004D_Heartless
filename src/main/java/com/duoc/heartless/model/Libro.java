@@ -6,10 +6,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.*;
 
 
@@ -47,7 +43,7 @@ public class Libro {
 
     @ManyToOne
     @JoinColumn(name = "autor_id")
-    @JsonManagedReference
+    @JsonBackReference
     private Autor autor;
 
     @OneToMany(mappedBy = "libro", cascade = CascadeType.ALL, orphanRemoval = true)
