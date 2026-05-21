@@ -34,7 +34,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n\r\n  \"nombre\": \"Harry Potter y la Piedra Filosofal\",\r\n  \"genero\": \"Fantasía\",\r\n  \"autor\": \"J.K. Rowling\",\r\n  \"fecha_de_incio\": 2026,\r\n  \"fecha_de_termino\": 2026,\r\n  \"pagina\": 233,\r\n  \"sinopsis\": \"Harry descubre que es un mago y comienza su primer año en Hogwarts.\"\r\n  \"libroId\": 4\r\n\r\n}\r\n",
+          "raw": "{\r\n  \"nombre\": \"Harry Potter y la piedra filosofal\",\r\n  \"genero\": \"Fantasía\",\r\n  \"fecha_de_inicio\": 1997,\r\n  \"fecha_de_termino\": 1997,\r\n  \"pagina\": 320,\r\n  \"sinopsis\": \"Harry descubre que es un mago.\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -42,7 +42,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/api/v1/libros",
+          "raw": "http://localhost:8080/api/v1/libros/3",
           "protocol": "http",
           "host": [
             "localhost"
@@ -51,7 +51,8 @@
           "path": [
             "api",
             "v1",
-            "libros"
+            "libros",
+            "3"
           ]
         }
       },
@@ -64,7 +65,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n        \"nombre\": \"1984 Actualizado\",\r\n        \"genero\": \"Ciencia Ficción\",\r\n        \"autor\": \"George Orwell\",\r\n        \"fecha_de_incio\": 2026,\r\n        \"fecha_de_termino\": 2026,\r\n        \"pagina\": 350,\r\n        \"sinopsis\": \"Versión actualizada del clásico distópico..\",\r\n        \"libroId\": 2\r\n    }",
+          "raw": "",
           "options": {
             "raw": {
               "language": "json"
@@ -89,7 +90,7 @@
       "response": []
     },
     {
-      "name": "New Request",
+      "name": "Eliminar libros",
       "request": {
         "method": "DELETE",
         "header": [],
@@ -111,13 +112,96 @@
       "response": []
     },
     {
-      "name": "Autores",
+      "name": "Listar Autores",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/autores",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "autores"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "eliminar autor",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Gabriel García Márquez\",\r\n  \"edad\": 87,\r\n  \"genero\": \"Masculino\",\r\n  \"nacionalidad\": \"Colombiana\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/libros/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "libros",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "actualizar autor",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id_autor\": 0,\r\n  \"nombre\": \"Gabriel García Márquez\",\r\n  \"edad\": 88,\r\n  \"genero\": \"Masculino\",\r\n  \"nacionalidad\": \"Colombiana\",\r\n  \"libros\": [\r\n    {\r\n      \"LibroId\": 3,\r\n      \"nombre\": \"Cien años de soledad\"\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/autores/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "autores",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "agregar autores",
       "request": {
         "method": "POST",
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "",
+          "raw": "{\r\n    \"id_autor\": 6,\r\n  \"nombre\": \"George R.R. Martin\",\r\n  \"edad\": 76,\r\n  \"genero\": \"Masculino\",\r\n  \"nacionalidad\": \"Estados Unidos\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -142,4 +226,3 @@
     }
   ]
 }
-
