@@ -2,18 +2,15 @@ package com.duoc.heartless.model;
 
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+//import jakarta.persistence.GeneratedValue;
+//import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+//import jakarta.persistence.Column;
 import jakarta.persistence.Table;
-import jakarta.persistence.OneToMany;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 
 @Data
@@ -24,9 +21,7 @@ import java.util.List;
 public class Autor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_autor")
-    private Integer id_autor;
+    private int id_autor;
 
     private String nombre;
 
@@ -36,8 +31,8 @@ public class Autor {
 
     private String nacionalidad;
 
-    @OneToMany(mappedBy = "autor")
-    private List<Libro> libros;
+    private Integer id;
+
 
 }
 

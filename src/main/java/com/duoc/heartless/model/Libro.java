@@ -17,7 +17,6 @@ import jakarta.validation.constraints.Min;
 public class Libro {
 
     @Id
-    @JoinColumn(name = "id_libro")
     private int LibroId; 
 
     @NotBlank(message = "El nombre del libro no puede estar vacío")
@@ -34,9 +33,6 @@ public class Libro {
 
     private String sinopsis;
 
-    @ManyToOne
-    @JoinColumn(name = "id_autor")
-    private Autor autor;
 }
 
 
