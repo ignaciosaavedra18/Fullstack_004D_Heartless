@@ -1,4 +1,4 @@
-Heartless - Registro de Libros
+Heartless registro de libros
 
 Descripcion:
 
@@ -10,7 +10,3 @@ Este proyecto fue desarrollado con fines académicos para aplicar conocimientos 
 
 
 
-Autores: 
-Ignacio Saavedra  
-Francisca Benitez
-Hernaldo Silva
