@@ -20,3 +20,5 @@ public class WeatherDTO {
 }
 
 // DTO utilizado para transportar la información del clima. Un DTO sirve para mover datos entre capas sin exponer directamente la entidad.
+// Guarda la descripción del clima.
+// Guarda la descripción del clima.

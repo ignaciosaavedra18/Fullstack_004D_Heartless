@@ -14,8 +14,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="autores")
-public class Autor {
+@Table(name="autores")  // Entidad que representa un autor en la base de datos.
+public class Autor { 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +31,7 @@ public class Autor {
 
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<Libro> libros;
+    private List<Libro> libros;  // Lista de libros asociados al autor.
 
 }
 

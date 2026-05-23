@@ -10,27 +10,27 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController    // Controlador REST encargado de manejar las peticiones de autores.
 @RequestMapping("/api/v1/autores")
 public class AutorController {
 
     @Autowired
     private AutorService autorService;
 
-   @GetMapping
+   @GetMapping  // Obtiene todos los autores registrados.
     public ResponseEntity<List<Autor>> listarAutores() {
         System.out.println("[AutorController] -> listarAutores");
         return ResponseEntity.ok(autorService.getAutores());
     }
 
-    @PostMapping
+    @PostMapping  // Agrega a un nuevo autor.
     public ResponseEntity<Autor> agregarAutor(@RequestBody Autor autor) {
         System.out.println("[AutorController] -> agregarAutor");
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(autorService.saveAutor(autor));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}")  // Busca un autor usando su ID.
     public ResponseEntity<Autor> buscarAutor(@PathVariable Integer id) {
         System.out.println("[AutorController] -> buscarAutor id=" + id);
 
@@ -43,7 +43,7 @@ public class AutorController {
         return ResponseEntity.ok(autor);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}")   // Actualiza un autor usando su ID.
     public ResponseEntity<Autor> actualizarAutor(
             @PathVariable Integer id,
             @RequestBody Autor autor) {
@@ -60,7 +60,7 @@ public class AutorController {
         return ResponseEntity.ok(actualizado);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")  // Elimina un autor usando su ID.
     public ResponseEntity<Void> eliminarAutor(@PathVariable Integer id) {
 
         System.out.println("[AutorController] -> eliminarAutor id=" + id);

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController   // Controlador REST encargado de consultar información del clima.
 @RequestMapping("/api/v1/clima")
 public class WeatherController {
 

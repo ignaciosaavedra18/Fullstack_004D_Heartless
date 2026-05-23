@@ -12,24 +12,24 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 
-@Service
+@Service  // Servicio encargado de la lógica de negocio de libros. Aquí se validan y gestionan los libros.
 public class LibroService {
 
-    @Autowired
+    @Autowired  // Inyección de dependencia del repositorio de libros para acceder a la base de datos.
     private LibroRepository libroRepository;
 
-    @Autowired
+    @Autowired // Inyección de dependencia del repositorio de autores para acceder a la base de datos.
     private AutorRepository autorRepository;
 
     
-    private static final Logger logger =
+    private static final Logger logger =  // Logger para registrar información sobre las operaciones realizadas en el servicio de libros. 
             LoggerFactory.getLogger(LibroService.class);
     
-    public List<Libro> getLibros() {
+    public List<Libro> getLibros() {  // Devuelve una lista de todos los libros.
         return libroRepository.findAll();
     }
 
-    public Libro saveLibro(Libro libro, Integer autorId) {
+    public Libro saveLibro(Libro libro, Integer autorId) { // Guarda un nuevo libro en la base de datos. Asocia el libro con un autor existente.
         Autor autor = autorRepository.findById(autorId)
                 .orElseThrow(() -> new RuntimeException("Autor no encontrado"));
         libro.setAutor(autor);
@@ -37,13 +37,13 @@ public class LibroService {
         return libroRepository.save(libro);
     }
 
-    public Libro getLibroId(Integer id) {
+    public Libro getLibroId(Integer id) {  // Busca un libro por su ID. Si no se encuentra, lanza una excepción.
         return libroRepository.findById(id)
                 .orElseThrow(() ->
                 new RuntimeException("Libro no encontrado"));
     
     }
-    public Libro updateLibro(Integer id, Libro libroactualizado) { 
+    public Libro updateLibro(Integer id, Libro libroactualizado) {  // Actualiza un libro existente. Si el libro no existe, lanza una excepción.
         Libro libro = libroRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Libro no encontrado"));
 
@@ -54,12 +54,12 @@ public class LibroService {
         libro.setPagina(libroactualizado.getPagina());
         libro.setSinopsis(libroactualizado.getSinopsis());
         
-        logger.info("Actualizando libro con id {}", id);
+        logger.info("Actualizando libro con id {}", id);  // Registra una información sobre la actualización del libro con su ID.
 
-    return libroRepository.save(libro);
+    return libroRepository.save(libro);  // Guarda el libro actualizado en la base de datos y lo devuelve.
     }
 
-    public void deleteLibro(Integer id) {
+    public void deleteLibro(Integer id) {  // Elimina un libro por su ID. Si el libro no existe, lanza una excepción.
         if (!libroRepository.existsById(id)) {
             throw new RuntimeException("Libro no encontrado");
         }

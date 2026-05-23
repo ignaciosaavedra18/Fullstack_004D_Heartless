@@ -38,5 +38,6 @@ public class GlobalExceptionHandler {
     }
 }
 
-// Maneja errores globales de la aplicación. Sirve para capturar excepciones y devolver mensajes más claros al usuario. 
+// Maneja errores globales de la aplicación. 
+// Sirve para capturar excepciones y devolver mensajes más claros al usuario. 
 // Ejemplo: recurso no encontrado error de validación error interno

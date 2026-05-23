@@ -16,8 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="libros")
-public class Libro {
+@Table(name="libros")  // Entidad que representa un libro en la base de datos.
+public class Libro {  
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,7 +51,5 @@ public class Libro {
     private List<Resena> resenas = new ArrayList<>();
 }
 
-
-
-
 // Entidad que representa un libro dentro del sistema. Contiene información del libro: título género autor reseñas
+// Relación del libro con el autor.

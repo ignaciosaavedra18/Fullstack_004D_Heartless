@@ -41,9 +41,6 @@ public class Resena {
     @JoinColumn(name = "libro_id")
     @JsonBackReference
     private Libro libro;
-    
-
-    
+        
 }
-
-// Entidad que representa una reseña realizada a un libro. Guarda comentarios o valoraciones de libros.
+// Entidad que representa una reseña realizada a un libro que estas contienen una relacion. Guarda comentarios o valoraciones de libros.

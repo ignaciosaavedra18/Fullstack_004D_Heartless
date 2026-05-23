@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController  // Controlador REST encargado de manejar las reseñas.
 @RequestMapping("/api/v1/resenas")
 public class ResenaController {
 
     @Autowired
     private ResenaService resenaService;
 
-    @GetMapping
+    @GetMapping  // Obtiene todas las reseñas registradas.
     public ResponseEntity<List<Resena>> listarResenas() {
         System.out.println("[ResenaController] -> listarResenas");
         return ResponseEntity.ok(resenaService.getResenas());
     }
     
-    @PostMapping("/{libroId}")
+    @PostMapping("/{libroId}")  // Agrega una nueva reseña asociada a un libro específico.
     public ResponseEntity<Resena> agregarResena(
             @PathVariable Integer libroId, 
             @RequestBody Resena resena) {
@@ -35,7 +35,7 @@ public class ResenaController {
 
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}")  // Busca una reseña usando su ID.
     public ResponseEntity<Resena> buscarResena(@PathVariable Integer id) {
         System.out.println("[ResenaController] -> buscarResena id=" + id);
 
@@ -48,7 +48,7 @@ public class ResenaController {
         return ResponseEntity.ok(resena);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}")  // Actualiza una reseña usando su ID.
     public ResponseEntity<Resena> actualizarResena( @PathVariable Integer id, @RequestBody Resena resena) {
         System.out.println("[ResenaController] -> actualizarResena id=" + id);
         resena.setId_resena(id);
@@ -63,7 +63,7 @@ public class ResenaController {
     }
 
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")  // Elimina una reseña usando su ID.
     public ResponseEntity<Void> eliminarResena(@PathVariable Integer id) {
         System.out.println("[ResenaController] -> eliminarResena id=" + id);
 
@@ -77,7 +77,7 @@ public class ResenaController {
     }
 
 
-    @GetMapping("/test-error")
+    @GetMapping("/test-error")  // Endpoint de prueba para generar un error y verificar el manejo de excepciones.
     public ResponseEntity<Resena> testError() {
         System.out.println("[ResenaController] -> testError");
         throw new RuntimeException("Error de prueba en ResenaController");
