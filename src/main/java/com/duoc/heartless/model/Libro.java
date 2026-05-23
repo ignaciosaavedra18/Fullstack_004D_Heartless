@@ -20,7 +20,7 @@ import java.util.List;
 public class Libro {  
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Genera automáticamente un ID único para cada libro.
     private Integer LibroId; 
 
     @NotBlank(message = "El nombre del libro no puede estar vacío")
