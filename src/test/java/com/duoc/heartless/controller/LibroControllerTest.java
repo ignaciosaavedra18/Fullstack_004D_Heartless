@@ -23,24 +23,35 @@ class LibroControllerTest {
     private LibroController libroController;
 
 
-    //Ajustar estructura a los datos de nuestras clases(Hay que terminarlo pq no está listo.)
     @Test
     void crearLibro_retorna201_cuandoExisteAutor() {
 
         // Vamos a verificar que el método agregarLibro del controlador funciona correctamente
         // Para ello crearfemos un libro con un autor válido y simularemos el comportamiento del servicio
-        Autor autor = new Autor(1, "Gabriel García Márquez", 87, "Colombiana");
-        Libro libro = new Libro(1, "9780307474728", "Cien años de soledad", "Sudamericana", 1967, autor);
+        Autor autor = new Autor();
+        autor.setId_autor(1);
+        autor.setNombre("Gabriel García Márquez");
+
+        Libro libro = new Libro();
+        libro.setLibroId(1);
+        libro.setNombre("Cien años de soledad");
+        libro.setGenero("Realismo mágico");
+        libro.setFechaDeinicio(2024);
+        libro.setFechaDetermino(2024);
+        libro.setPagina(417);
+        libro.setSinopsis("Historia de la familia Buendía");
+        libro.setAutor(autor);
 
         // ""Simulamos""" el comportamiento del servicio (mock):
         // Así evitamos acceder a base de datos en una prueba unitaria.
         // Cuando el servicio intente guardar el libro, le decimos que devuelva el mismo libro (como si lo hubiera guardado).
         // Cuando el controlador invoque saveLibro con ese libro, Mockito devolverá ese mismo libro al instante, sin ejecutar lógica real, sin repositorio, sin DB.
-        when(libroService.saveLibro(libro)).thenReturn(libro);
+        when(libroService.saveLibro(libro, 1)).thenReturn(libro);
+
 
         // Llamamos al método del controlador que queremos probar.
         // El resultado es un ResponseEntity<Libro> con estado HTTP y cuerpo.
-        var respuesta = libroController.agregarLibro(libro);
+        var respuesta = libroController.agregarLibro(1, libro);
 
         // Para que el test sea completo, verificamos varios aspectos de la respuesta:
 
@@ -55,7 +66,7 @@ class LibroControllerTest {
         assertNotNull(body);
 
         // 4) Validamos un dato clave del cuerpo para confirmar que se devolvió el libro correcto.
-        assertEquals("Cien años de soledad", body.getTitulo());
+        assertEquals("Cien años de soledad", body.getNombre());
 
     }
 }
