@@ -2,6 +2,9 @@ package com.duoc.heartless.controller;
 
 import com.duoc.heartless.model.Resena;
 import com.duoc.heartless.service.ResenaService;
+
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 //import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +15,7 @@ import java.util.List;
 
 @RestController  // Controlador REST encargado de manejar las reseñas.
 @RequestMapping("/api/v1/resenas")
+@SecurityRequirement(name = "bearerAuth")
 public class ResenaController {
 
     @Autowired

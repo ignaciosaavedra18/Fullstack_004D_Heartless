@@ -2,6 +2,9 @@ package com.duoc.heartless.controller;
 
 import com.duoc.heartless.dto.WeatherDTO;
 import com.duoc.heartless.service.WeatherService;
+
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController   // Controlador REST encargado de consultar información del clima.
 @RequestMapping("/api/v1/clima")
+@SecurityRequirement(name = "bearerAuth")
 public class WeatherController {
 
     @Autowired

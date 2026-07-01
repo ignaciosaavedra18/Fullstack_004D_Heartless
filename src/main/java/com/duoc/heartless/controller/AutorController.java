@@ -2,6 +2,9 @@ package com.duoc.heartless.controller;
 
 import com.duoc.heartless.model.Autor;
 import com.duoc.heartless.service.AutorService;
+
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 //import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +15,7 @@ import java.util.List;
 
 @RestController    // Controlador REST encargado de manejar las peticiones de autores.
 @RequestMapping("/api/v1/autores")
+@SecurityRequirement(name = "bearerAuth")
 public class AutorController {
 
     @Autowired

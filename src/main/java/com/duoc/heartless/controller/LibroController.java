@@ -2,6 +2,8 @@ package com.duoc.heartless.controller;
 
 import com.duoc.heartless.model.Libro;
 import com.duoc.heartless.service.LibroService;
+
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +14,7 @@ import java.util.List;
 
 @RestController    // Controlador REST encargado de manejar las peticiones de libros.
 @RequestMapping("/api/v1/libros")
+@SecurityRequirement(name = "bearerAuth")
 public class LibroController {
 
     @Autowired
